@@ -125,11 +125,11 @@ class uname_result2(
 
 
 @dataclass
-class SystemInfo:
+class UnameInfo:
     uname: uname_result2
 
 
-def play_uname():
+def main():
 
     _system = "Darwin"
     _node = "CHARLESs-MBP.attlocal.net"
@@ -143,11 +143,10 @@ def play_uname():
     _uname_cache = uname_result2(*map(_unknown_as_blank, vals))
     print(_uname_cache)
 
-    s_info = SystemInfo(uname=_uname_cache)
+    s_info = UnameInfo(uname=_uname_cache)
     s_info_as_dict = asdict(s_info)
     print(s_info_as_dict)
 
 
 if __name__ == '__main__':
-    play_uname()
-    # get_system_info()
+    main()
